@@ -1,0 +1,8 @@
+#!/bin/bash
+echo $1 $2
+if [ "$1" == "up" ]
+then 
+amixer -D pulse sset Master $(echo "$2 + 1" | bc)%
+else
+amixer -D pulse sset Master $(echo "$2 - 1" | bc)%
+fi

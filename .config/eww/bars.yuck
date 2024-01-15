@@ -1,0 +1,125 @@
+(defwindow bar_rounded
+        :monitor 0
+	:geometry (geometry :x "0%"
+                       :y "4px"
+                       :width "90%"
+                       :height "30px"
+                       :anchor "top center")
+           :reserve (struts :distance "40px" :side "left")
+
+         :stacking "overlay"
+;;          :windowtype "normal"
+	:focusable false
+	:exclusive true
+(bar_1) )
+
+(defwindow bar_squared
+        :monitor 0
+	:geometry (geometry :x "0%"
+                       :y "4px"
+                       :width "100%"
+                       :height "30px"
+                       :anchor "bottom center")
+           :reserve (struts :distance "40px" :side "bottom")
+
+         :stacking "overlay"
+;;          :windowtype "normal"
+	:focusable false
+	:exclusive true
+(bar_1) )
+
+(defwidget bar_1 []
+  (box :class "bar_class"
+       :orientation "h"
+  (left) (center) (right) ))
+
+
+(defwidget left []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "start"
+		 :class "left_modules"
+  (system-png) (sep) (apps-png) ))
+
+
+(defwidget right []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "end" 
+         :class "right_modules"
+  (unread_github) (unread_emails) (music_info) (volume) (clock_module) ))
+				;;(music_info) 
+
+(defwidget center []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "center"
+		 :class "center_modules"
+;;{Primetheme}
+(workspaces)
+
+))
+
+
+
+(deflisten tray "~/eww-tray/scripts/host.py")
+
+(defwidget tray []
+      (box :orientation "h" :space-evenly true
+            (for entry in tray
+                  (button :onclick {entry.menu_cmd + " &"}
+                          :onrightclick {entry.cmd + " &"}
+                          (image :image-height 20
+                                 :path {entry.IconPath})))))
+
+
+
+
+
+
+(defwindow bar_seg_1
+        :monitor 0
+	:geometry (geometry :x "0%"
+                       :y "4px"
+                       :width "0"
+                       :height "30px"
+                       :anchor "bottom left")
+           :reserve (struts :distance "40px" :side "bottom")
+
+         :stacking "overlay"
+;;          :windowtype "normal"
+	:focusable false
+	:exclusive true
+(left) )
+
+
+
+(defwindow bar_seg_2
+        :monitor 0
+	:geometry (geometry :x "0%"
+                       :y "4px"
+                       :width "10%"
+                       :height "30px"
+                       :anchor "bottom center")
+           :reserve (struts :distance "40px" :side "bottom")
+
+         :stacking "overlay"
+;;          :windowtype "normal"
+	:focusable false
+	:exclusive true
+(center) )
+
+(defwindow bar_seg_3
+        :monitor 0
+	:geometry (geometry :x "0%"
+                       :y "4px"
+                       :width "10%"
+                       :height "30px"
+                       :anchor "bottom right")
+           :reserve (struts :distance "40px" :side "bottom")
+
+         :stacking "overlay"
+;;          :windowtype "normal"
+	:focusable false
+	:exclusive true
+(right) )

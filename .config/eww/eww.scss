@@ -1,0 +1,305 @@
+@import "colours"; // Imports colour file (_colours.scss)
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+  font-family: Operator mono Medium;//Iosevka Nerd Font;//JetbrainsMonoNerdFont;//MyFont;//HeavyDataNerdFontPropo;//ShureTechMono Nerd Font;//TerminessNerdFont;//HeavyDataNerdFontPropo;//FantasqueSansMono Nerd Font; //JetbrainsMonoNerdFont;
+}
+
+//Global Styles
+.bar_rounded { //Adding OFF to .bar_rounded results in transparent bar
+ 	font-size: 13px; //13
+
+  //background-color: $BG; // Default-no transparency
+  background-color: rgba($BG, 0.8); // Transparent BG
+  color: $FG;
+//  padding: 10px;
+  border: 3px solid $BLACK; // old plain blue border 2px solid $BLUE
+  border-radius: 10px;
+ /* UNCOMMENT BELOW FOR CHROMA BORDER */ /*
+  border-image-slice: 1;  
+  padding: 6px 12px;
+  background-image:  linear-gradient(to bottom right, $BLUE 0%, $BLUE 25%, $BLUE 49%, $GREEN 75%, $GREEN 100%);
+  background-origin: border-box;
+  box-shadow: inset 0 1000px $BG; 
+  border: 3px solid transparent;
+*/
+}
+.bar_squared {
+ 	font-size: 15; //13
+  background-color: $BG;
+  color: $FG;
+  border: 3px solid $BLACK; // old plain blue border 
+  border-radius: 0px;
+ /* UNCOMMENT BELOW FOR CHROMA BORDER */
+//  border-image-slice: 1;  
+//  padding: 6px 12px;
+//  background-image:  linear-gradient(to bottom right, $MAGENTA 0%, $BLUE 25%, $GREEN 49%, $YELLOW 75%, $RED 100%);
+//  background-origin: border-box;
+//  box-shadow: inset 0 1000px $BG; 
+//  border: 2px solid transparent;  
+}
+
+
+.bar_seg_1 {
+ 	font-size: 16; //13
+  background-color: $BG;
+  color: $FG;
+  border: 3px solid $BLACK; // old plain blue border 
+  border-radius: 0px;
+ /* UNCOMMENT BELOW FOR CHROMA BORDER */
+//  border-image-slice: 1;  
+//  padding: 6px 12px;
+//  background-image:  linear-gradient(to bottom right, $MAGENTA 0%, $BLUE 25%, $GREEN 49%, $YELLOW 75%, $RED 100%);
+//  background-origin: border-box;
+//  box-shadow: inset 0 1000px $BG; 
+//  border: 2px solid transparent;  
+}
+.bar_seg_2 {
+ 	font-size: 16; //13
+  background-color: $BG;
+  color: $FG;
+  border: 3px solid $BLACK; // old plain blue border 
+  border-radius: 0px;
+ /* UNCOMMENT BELOW FOR CHROMA BORDER */
+//  border-image-slice: 1;  
+//  padding: 6px 12px;
+//  background-image:  linear-gradient(to bottom right, $MAGENTA 0%, $BLUE 25%, $GREEN 49%, $YELLOW 75%, $RED 100%);
+//  background-origin: border-box;
+//  box-shadow: inset 0 1000px $BG; 
+//  border: 2px solid transparent;  
+}
+.bar_seg_3 {
+ 	font-size: 16; //13
+  background-color: $BG;
+  color: $FG;
+  border: 3px solid $BLACK; // old plain blue border 
+  border-radius: 0px;
+ /* UNCOMMENT BELOW FOR CHROMA BORDER */
+//  border-image-slice: 1;  
+//  padding: 6px 12px;
+//  background-image:  linear-gradient(to bottom right, $MAGENTA 0%, $BLUE 25%, $GREEN 49%, $YELLOW 75%, $RED 100%);
+//  background-origin: border-box;
+//  box-shadow: inset 0 1000px $BG; 
+//  border: 2px solid transparent;  
+}
+
+.volume_bar {
+  all: unset;
+  background-color: transparent;
+}
+// Styles on classes (see eww.yuck for more information)
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+
+.label-ram {
+  font-size: large;
+}
+.workspaces button:hover {
+  color: #D35D6E;
+}
+.sep {
+    font-size: 13;
+    color: $GREEN;
+    margin: 0px 5px 0px 5px;
+}
+
+.clock_date {
+	margin: 0px 10px 0px 0px;
+}
+
+
+.clock_minute {
+	margin: 0px 10px 0px 0px;
+}
+
+
+
+
+// VOLUME
+
+.volbar trough highlight {
+  background-color: $CYAN;
+//  linear-gradient(to right, $GREEN 30%, $FG 50%, $RED 100% *50);
+  border-radius: 10px;
+}
+.volbar {
+font-size: 12px;
+color: $FG;
+}
+k.volume_icon {
+
+    background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 20px;
+	min-width: 20px;
+}
+.volumepng {
+    background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 25px;
+	min-width: 25px;
+    opacity: 1;
+	transition: 0.3s;
+	margin: 0px 0px 0px 10px; 
+}
+.play-pausepng {
+    background-repeat: no-repeat;
+	background-size: 21px;
+	min-height: 25px;
+	min-width: 25px;
+    opacity: 1;
+//	transition: 0.3s;
+	margin: 6px 0px 0px 0px; 
+}
+scale trough {
+  all: unset;
+  background-color: #22242b;
+  box-shadow: 0 2px #06060b;
+  border-radius: 5px;
+  min-height: 8px;
+  min-width: 70px;
+  margin: -5px 10px 0px 0px;
+}
+.system {
+	color: #a1bdce;
+  font-family: JetBrainsMono Nerd Font;
+	font-size : 17px;
+	font-weight : bold;
+	margin: 0px 0px 0px 0px;
+}
+.iconmem {
+    font-size: 15;
+    margin: 10px;
+}
+.musicinfo_class {
+	font-size: 2px;
+}
+
+.genicon {
+    background-repeat: no-repeat;
+	background-size: 20px;
+	min-height: 20px;
+	min-width: 20px;
+}
+
+.apppng {
+    background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 25px;
+	min-width: 25px;
+  opacity: 1;
+  transition: 0.3s;
+}
+.apppng:hover {
+opacity: 0.6;
+}
+
+.systempng {
+    background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 25px;
+	min-width: 25px;
+    opacity: 1;
+	transition: 0.3s;
+	margin: 0px 0px 0px 10px; 
+}
+.systempng:hover {
+opacity: 0.6;
+}
+
+
+.musictime {
+    color: $FG;
+
+//border-right: 2px solid $BLUE;
+//border-left: 2px solid $BLUE;
+//border-radius: 10px;
+//min-width: 20px;
+// margin-top: 5px;
+// margin-bottom: 5px
+}
+
+tooltip.background {
+	@extend .bar_squared; // Change to .bar_rounded when using rounded bar
+//	background-color: $BG;
+//    font-size: 13;
+//    border-radius: 10px;
+//  border: 2px solid $BLUE;
+//    color: $FG
+}
+
+
+.play-pause {
+ font-size: 19;
+    color: $RED;
+
+//border-left: 2px solid $BLUE;
+//border-radius: 20px;
+//min-width: 20px;
+// margin-top: 5px;
+// margin-bottom: 5px
+
+}
+.play-pause-cap {
+font-size: 24px; 
+color: $BLUE;
+}
+.music-mid {
+font-size: 19px; //18px
+color: $BLUE;
+}
+.music-cap {
+font-size: 24px; //18px
+color: $BLUE;
+}
+.unreadmail {
+font-size: 15px;
+	color: $BG;
+  text-shadow: 0px 0px $BG;
+}
+
+// Hyprland Workspaces
+.workspaces {
+  border-radius: 3px;
+  padding: 2px;
+
+
+  inner {
+    &:hover {
+      background-color: $BLUE;
+    }
+  }
+  button {
+    border-style: none;
+//    box-shadow: inherit;
+//    text-shadow: inherit;
+      background: rgba($FG, 0.6);
+//    border: 2px solid $BLACK;
+    min-width: 20px;
+    min-height: 14px;
+//    margin: 0 0.4rem;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: $FG;
+    }
+
+    &.occupied {
+      background: $GREEN;
+      &:hover {
+        background-color: $BLUE;
+      }
+    }
+
+    &.active {
+      background: $BLUE;
+      background-size: cover;
+          min-width: 30px;
+
+    }
+  }
+}
+

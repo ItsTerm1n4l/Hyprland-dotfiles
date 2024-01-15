@@ -1,0 +1,6 @@
+(include "vars.yuck")
+(include "bars.yuck")
+(include "modules.yuck")
+(include "pwrmenu/windows.yuck")
+(include "pwrmenu/variables.yuck")
+(include "pwrmenu/launcher.yuck")

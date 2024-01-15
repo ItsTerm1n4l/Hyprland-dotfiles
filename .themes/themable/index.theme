@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=themable
+Comment=An Clean Gtk+ theme based on Lavanda | Nord+Tokyo-night
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=London-night
+MetacityTheme=Lavanda-Dark-Compact
+IconTheme=Tela-circle-Dark
+CursorTheme=Lavanda-cursors
+ButtonLayout=close,minimize,maximize:menu

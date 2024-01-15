@@ -1,0 +1,26 @@
+import = ["/home/david/.config/alacritty/colours.toml"]
+
+[debug]
+renderer = "Gles2Pure"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "Operator mono Nerd Font"
+style = "SemiBold"
+
+[shell]
+args = ["--login"]
+program = "/bin/fish"
+
+[window]
+dynamic_padding = false
+
+[window.dimensions]
+columns = 80
+lines = 20
+
+[window.padding]
+x = 10
+y = 10

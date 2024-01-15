@@ -1,0 +1,52 @@
+;; Path to eww configuration
+(defvar eww "$HOME/.local/bin/eww -c $HOME/.config/eww/")
+
+;; Vars
+(defvar path "background-image: url('icons/apps.png');")
+(defvar boool true)
+(defpoll play_pause :interval "0.5s" 'scripts/play-pause.sh')
+(defvar music_time "scripts/time.sh")
+(defpoll music_info :interval "1s" "$HOME/.config/eww/scripts/time.sh")
+(defvar music_rev false)
+(defvar vol_reveal false)
+(defvar time_rev false)
+
+;; Polls
+(defpoll Primetheme :interval "5s" "readlink ~/.config/Prime/current.py | awk -F '/' '{printf $7}' | awk -F '.' '{printf $1}'")
+(defpoll volume_percent :interval "0.5s" "pamixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+
+(defpoll clock_time :interval "1m" "date +\%I")
+
+(defpoll clock_minute :interval "1s" "date +\%M")
+
+(defpoll clock_date :interval "5m" "date '+%d/%m'")
+
+(defpoll memory :interval "1s" "scripts/memory")
+
+(defpoll memory_used_mb :interval "2m" "scripts/mem-ad used")
+
+(defpoll memory_total_mb :interval "2m" "scripts/mem-ad total")
+
+(defpoll memory_free_mb :interval "2m" "scripts/mem-ad free")
+
+(defpoll unreadmailcount :interval "5s" "bar-protonmail -b '' -f polybar")
+;;(defpoll unreadgitcount :interval "5s" "scripts/github.sh")
+
+(defpoll volume :interval "1s" "scripts/getvol")
+
+(defpoll time :interval "2s" "date '+%H:%M'")
+
+;; Listens
+
+;;(deflisten Prime :initial ""  "readlink ~/.config/Prime/current.py | awk -F '/' '{printf $7}' | awk -F '.' '{printf $1}'")
+(deflisten musicscroll :initial ""
+  "scripts/scroll_spotify_status.sh")
+(deflisten musictitle :initial ""
+ "playerctl metadata --format '{{ artist }} {{ title }}' -F")
+
+(deflisten playpause :initial ""
+"scripts/play-pause.sh")
+(deflisten musictime :initial ""
+"scripts/get_music_time.sh")
+
+

@@ -1,0 +1,128 @@
+(defwidget sep []
+    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" 
+      (label :text "" :class "sep")
+    )
+)
+
+(deflisten workspaces_var :initial "[]"  `$HOME/.config/eww/eww_prime/scripts/ws.sh`)
+(defwidget workspaces []
+  (box
+    (box :orientation "h" :class "workspaces" :space-evenly "false" :halign "center" :spacing 10
+        (button :class {workspaces_var[0]} :valign "center" :onclick "hyprctl dispatch workspace 1")
+        (button :class {workspaces_var[1]} :valign "center" :onclick "hyprctl dispatch workspace 2")
+        (button :class {workspaces_var[2]} :valign "center" :onclick "hyprctl dispatch workspace 3")
+        (button :class {workspaces_var[3]} :valign "center" :onclick "hyprctl dispatch workspace 4")
+        (button :class {workspaces_var[4]} :valign "center" :onclick "hyprctl dispatch workspace 5")
+	(button :class {workspaces_var[5]} :valign "center" :onclick "hyprctl dispatch workspace 6")
+	)))
+
+(defwidget volume []
+  (eventbox :onhover "${eww} update vol_reveal=true"
+			  :onhoverlost "${eww} update vol_reveal=false"
+  (box :class "module-2" :space-evenly "false" :orientation "h" :spacing "5" :valign "center" :halign "center" 
+       (button :style "background-image: url('icons/volume.png');" :class "volumepng"
+             :onclick "scripts/widget_apps --ap")
+	(revealer :transition "slideleft"
+			  :reveal vol_reveal
+              :duration "350ms"
+;;            (label :text "" :class "sep")
+	(scale    :class "volbar"
+			  :value volume_percent
+              :draw-value true
+			  :orientation "h"
+			  :tooltip "Volume: ${volume_percent}%"
+			  :max 100
+			  :min 0
+			  :onchange "amixer -D pulse sset Master {}%" 
+)))))
+
+(defwidget music_info []
+;;  (eventbox :onhover "${eww} update music_rev=true"
+;;			  :onhoverlost "${eww} update music_rev=false"
+    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3"       
+      (transform :rotate "25" :translate-x "8px" :translate-y "-28px" ;; transform only needed when cap is a glyph
+
+      (label :text "󱁐" 
+       :class "play-pause-cap"))
+      (button :style "background-image: url('${play_pause}');" :class "play-pausepng" :onclick "playerctl --player=mpv,%any play-pause" )
+;         (label :text "" 
+;              :class "play-pause" )
+        (label :text "󰽴" 
+             :class "music-mid" )
+      (label :text "${musictime}" 
+             :class "musictime" 
+             :tooltip "󰝚${musictitle}")
+      (transform :rotate "-25" :translate-x "-27px" :translate-y "-10px"
+;; transform only needed when cap is a glyph. alternative 󰊩 needs -12.5px translate-y
+      (label :text "󱁐"
+             :class "music-cap" 
+))))
+
+(defwidget unread_emails []
+			(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"   
+      (button :style "background-image: url('icons/protonmail.png');" :class "apppng" :onclick "echo hi"
+      (label :text "${unreadmailcount}" 
+             :class "unreadmail" 
+             :tooltip "There are${unreadmailcount} unread emails in your inbox"
+))))
+
+(defwidget unread_github []
+			(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"   
+      (button :style "background-image: url('icons/github.png');" :class "apppng" :onclick "echo hi"
+      (label :text "hi" ;;"${unreadgitcount}" 
+             :class "unreadmail" 
+             :tooltip "You have " ;;${unreadgitcount} github notifications"
+))))
+
+(defwidget clock_module []
+  (eventbox :onhover "${eww} update time_rev=true"
+			  :onhoverlost "${eww} update time_rev=false"
+    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" 
+      (label :text "${time} " :class "clock_time" )
+	  (revealer :transition "slideright"
+			  :reveal time_rev
+			  :duration "350ms"
+      (button :class "clock_date"
+             :onclick "$HOME/.config/eww/bar/scripts/pop calendar" "${clock_date}"
+)))))
+
+;; APPS
+;; APP Icons Using PNG's
+(defwidget system-png []
+    (box :space-evenly "false" :orientation "h" :spacing "30" :valign "center" :halign "center"    
+       (button :style "background-image: url('icons/apps.png');" :class "systempng"
+             :onclick "scripts/widget_apps --ap")
+        ) 
+  )
+(defwidget apps-png [] 
+		(box :class "dockbox"
+			(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+				(button :style "background-image: url('icons/terminal.png');" :class "apppng" :onclick "scripts/widget_apps --tr")
+				(button :style "background-image: url('icons/browser.png');" :class "apppng" :onclick "scripts/widget_apps --ff")
+				(button :style "background-image: url('icons/places.png');" :class "apppng" :onclick "scripts/widget_apps --fm")
+				(button :style "background-image: url('icons/system.png');" :class "apppng" :onclick "scripts/widget_apps --ge")
+				(button :style "background-image: url('icons/system2.png');" :class "apppng" :onclick "scripts/widget_apps --dc")
+)))
+
+;; APP Icons Using Font Glyphs
+(defwidget system []
+    (box :space-evenly "false" :orientation "h" :spacing "30" :valign "center" :halign "center"    
+       (button  :class "systemicon" :onclick "scripts/widget_apps --ap"
+		(label :text "" :style "font-size: 18;"
+             
+        ) 
+)))
+
+(defwidget apps [] 
+		(box :class "dockbox"
+			(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+				(button :class "appicon" :onclick "scripts/widget_apps --tr" (label :style "font-size: 18;" :text "" ))
+				(button :class "appicon" :onclick "scripts/widget_apps --ff" (label :style "font-size: 18;" :text "" ))
+				(button :class "appicon" :onclick "scripts/widget_apps --fm" (label :style "font-size: 18;" :text "" ))
+				(button :class "appicon" :onclick "scripts/widget_apps --ge" (label :style "font-size: 18;" :text "" ))
+				(button :class "appicon" :onclick "scripts/widget_apps --dc" (label :style "font-size: 18;" :text "" ))
+				(button :class "appicon" :onclick "scripts/widget_apps --rd" (label :style "font-size: 18;" :text "" ))
+				(button :class "appicon" :onclick "scripts/widget_apps --ff" (label :style "font-size: 18;" :text "" ))
+)))
+
+
